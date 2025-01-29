@@ -1,0 +1,7 @@
+services:
+  ubuntu:
+    build: .
+    volumes:
+      - ./data/:/portal
+    stdin_open: true
+    tty: true
