@@ -1,0 +1,17 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: dockerfiles/server.dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - "./:/app"
+  npm: 
+    build: 
+      context: .
+      dockerfile: dockerfiles/npm.dockerfile
+    volumes:
+      - "./:/app"
+    stdin_open: true
+    tty: true
