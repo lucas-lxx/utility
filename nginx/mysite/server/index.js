@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", async (req, res) => {
+  console.log("touch");
   res.send("I am an endpoint");
 });
 
