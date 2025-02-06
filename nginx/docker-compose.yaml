@@ -1,8 +1,41 @@
 services:
   nginx:
-    build: .
+    build: 
+      context: .
+      args:
+        GROUP_ID: 1000
+        USER_ID: 1000
     ports:
       - 8080:8080
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./server-configs-nginx/:/etc/nginx
       - ./mysite/:/var/www/html
+    depends_on:
+      - server-1
+      - server-2
+      - server-3
+      - server-4
+  server-1:
+    build:
+      context: ./mysite/server/
+      dockerfile: dockerfiles/server.dockerfile
+    volumes:
+      - "./mysite/server/:/app"
+  server-2:
+    build:
+      context: ./mysite/server/
+      dockerfile: dockerfiles/server.dockerfile
+    volumes:
+      - "./mysite/server//:/app"
+  server-3:
+    build:
+      context: ./mysite/server/
+      dockerfile: dockerfiles/server.dockerfile
+    volumes:
+      - "./mysite/server//:/app"
+  server-4:
+    build:
+      context: ./mysite/server/
+      dockerfile: dockerfiles/server.dockerfile
+    volumes:
+      - "./mysite/server//:/app"
