@@ -1,20 +1,34 @@
 <?php
+class Cep {
+  private $cep;
 
-class Carro {
-  private $portas;
-  private $cor;
-  private $ano;
-
-  public function __construct($portas, $cor, $ano) {
-    $this->portas = $portas;
-    $this->cor = $cor;
-    $this->ano = $ano;
+  public function __construct($cep) {
+    if ($this->isValid($cep)) {
+      $this->cep = $cep;
+    }
   }
 
-  public function stats() {
-    echo "Carro: portas {$this->portas}, cor {$this->cor}, ano {$this->ano}\n";
+  public function getCep() {
+    return $this->cep;
+  }
+
+
+  public function setCep($cep) {
+    $this->cep = $cep;
+  }
+
+  public function isValid() {
+    if ($cep >= '09000001' && $cep <= '09399999') {
+      return true;
+    } else if ($cep >= '09600001' && $cep <= '09899999') {
+      return true;
+    } else if ($cep >= '09500001' && $cep <= '09599999') {
+      return true;
+    }
+    return false;
   }
 }
 
-$c = new Carro(4, "azul", 1998);
-$c->stats();
+$c = new Cep('09000002');
+$c->isValid();
+?>
