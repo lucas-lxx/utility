@@ -1,0 +1,3 @@
+[submodule "git-submodules/server-configs-nginx"]
+	path = git-submodules/server-configs-nginx
+	url = git@github.com:h5bp/server-configs-nginx.git
