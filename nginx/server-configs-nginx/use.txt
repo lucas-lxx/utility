@@ -1,1 +1,2 @@
 configuracao base do nginx para melhorar a seguranca, https://github.com/h5bp/server-configs-nginx
+the custom conf is on conf.d the conf that'll work can't be a .file
